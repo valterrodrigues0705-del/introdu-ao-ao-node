@@ -5,20 +5,20 @@ function calcularMedia(arr) {
     });
     return soma / arr.length
 }
-let notas= process.argv.slice(2)
+let notas = process.argv.slice(2)
 console.log(calcularMedia(notas))
 
 
 let media = calcularMedia(notas)
-function verificarAprovaçao(media){
-        if(media >=7){
-            return "Aprovado";
-        }
-        else if(media >=6){
-            return "recuperaçao";
-        }
-        else if(media >=5){
-            return "reprovado";
-        }
+function verificarAprovaçao(media) {
+    if (media >= 7) {
+        return "Aprovado";
+    }
+    else if (media < 6) {
+        return "reprovado";
+    }
+    else {
+        return "recuperação";
+    }
 }
 console.log(verificarAprovaçao(media));
