@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "rodar": "node app.js",
+        "start": "node servidor.js"
+
+    }
+}
