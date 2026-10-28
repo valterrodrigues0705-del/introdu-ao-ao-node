@@ -16,7 +16,8 @@
     "main": "app.js",
     "scripts": {
         "rodar": "node app.js",
-        "start": "node servidor1.js"
+        "start": "node servidor.js",
+        "usuarios": "node --watch usuarios.js"
     },
     "dependencies": {
         "express": "^5.3.0"
