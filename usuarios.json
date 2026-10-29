@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nome": "raimunda",
+    "email": "mundinha@hotmail.com",
+    "telefone": "(85)98456-7587"
+  },
+  {
+    "id": 2,
+    "nome": "antonio",
+    "email": "antonio@gmail.com",
+    "telefone": "(11)940028922"
+  },
+  {
+    "id": 3,
+    "nome": "Ruan",
+    "email": "ruan@hotmail.com",
+    "telefone": "(21)988003232"
+  },
+  {
+    "id": 4,
+    "nome": "andre",
+    "email": "teste",
+    "telefone": "(85)966404829"
+  },
+  {
+    "id": 5,
+    "nome": "Gerardo",
+    "email": "gerardocastro@gmail.com ",
+    "telefone": "(85)988888888"
+  },
+  {
+    "id": 1793285433470,
+    "nome": "José",
+    "email": "zezin@hotmail.com",
+    "telefone": "(21)987654321"
+  }
+]
