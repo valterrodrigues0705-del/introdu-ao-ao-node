@@ -4,39 +4,18 @@ const app = express()
 const path = require('path')
 const fs = require('fs');
 app.use(express.json())
-let usuarios = [
-    {
-        id: 1,
-        nome: "raimunda",
-        email: "mundinha@hotmail.com",
-        telefone: "(85)98456-7587",
+const db = require('./database')
 
-    },
-    {
-        id: 2,
-        nome: "antonio",
-        email: "antonio@gmail.com",
-        telefone: "(11)940028922",
-    },
-    {
-        id: 3,
-        nome: "Ruan",
-        email: "ruan@hotmail.com",
-        telefone: "(21)988003232",
-    },
-    {
-        id: 4,
-        nome: "Lia",
-        email: "htinha@gmail.com",
-        telefone: "(85)966404829",
-    },
-    {
-        id: 5,
-        nome: "Gerardo",
-        email: "gerardocastro@gmail.com ",
-        telefone: "(85)988888888",
-    }
-]
+const listarUsuarios = db.prepare(`
+        SELECT * FROM usuarios
+    `)
+const adicionarUsuarios = db.prepare(`
+        INSERT INTO usuarios (nome, email, telefone)
+        VALUES (?, ?, ?)
+    `)
+
+
+let usuarios = []
 
 function salvar() {
     const jsonData = JSON.stringify(usuarios, null, 2);
@@ -48,16 +27,20 @@ function salvar() {
         }
     })
 }
-function ler(){
-    fs.readFile("usuarios.json", (err,data) =>{
-        if(err) throw err
-        usuarios = JSON.parse(data)
-        console.log('Arquivo carregado com sucesso')
-    })
+function ler() {
+    // fs.readFile("usuarios.json", (err, data) => {
+    //     if (err) throw err
+    //     usuarios = JSON.parse(data)
+    //     console.log('Arquivo carregado com sucesso')
+    // })
+    dados = fs.readFileSync('usuarios.json')
+    usuarios = JSON.parse(dados)
+    console.log('Arquivo carregado com sucesso')
 }
 app.get("/usuarios", (req, res) => {
-    res.json(usuarios)
     ler()
+    const resposta = listarUsuarios.all
+    res.json(resposta)
 })
 
 app.get("/usuarios/:id", (req, res) => {
